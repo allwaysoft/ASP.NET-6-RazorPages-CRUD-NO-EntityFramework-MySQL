@@ -1,0 +1,45 @@
+﻿@page
+@model RazorPages_CRUD_NO_EntityFramework.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">RazorPages_CRUD_NO_EntityFramework</h1>
+    <hr />
+    <form method="post">
+        <div class="form-group">
+            姓名： <input type="text" name="name" placeholder="姓名" />
+            电子邮件： <input type="email" name="email" placeholder="电子邮件" />
+            出生日期： <input type="date" name="datebirth" />
+            性别： <select id="sex" name="sex">
+                <option value="M">男</option>
+                <option value="F">女</option>
+            </select>
+            <input type="submit" value="增加" class="btn btn-success" />
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>姓名</th>
+                <th>电子邮件</th>
+                <th>出生日期</th>
+                <th>性别</th>
+            </tr>
+            @foreach (var element in Model.ListStudents)
+            {
+                <tr>
+                    <td>@element.id</td>
+                    <td>@element.name</td>
+                    <td>@element.email</td>
+                    <td>@element.datebirth</td>
+                    <td>@element.sex</td>
+                    <td><a asp-page="Edit" class="btn btn-info" asp-route-_id="@element.id">修改</a></td>
+                    <td><a asp-page="Details" class="btn btn-primary" asp-route-_id="@element.id">详细信息</a></td>
+                    <td><a asp-page="Delete" class="btn btn-danger" asp-route-_id="@element.id">删除</a></td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>

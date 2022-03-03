@@ -1,0 +1,32 @@
+﻿@page "{_id:int}"
+@model RazorPages_CRUD_NO_EntityFramework.Pages.EditModel
+@{
+}
+<h2>学生详细信息:</h2>
+<form method="post">
+    <table class="table">
+        <tr>
+            <td>ID: @Html.DisplayFor(model => model.ListStudents.id)</td>
+        </tr>
+        <tr>
+            <td>姓名: <input type="text" name="name" placeholder="姓名" asp-for="ListStudents.name" /> </td>
+        </tr>
+        <tr>
+            <td>电子邮件: <input type="email" name="email" placeholder="电子邮件" asp-for="ListStudents.email" /> </td>
+        </tr>
+        <tr>
+            <td>出生日期: <input type="date" name="datebirth" asp-for="ListStudents.datebirth" /> </td>
+        </tr>
+        <tr>
+            <td>
+                性别:<select id="sex" name="sex" asp-for="ListStudents.sex">
+                    <option value="M">男</option>
+                    <option value="F">女</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="修改" class="btn btn-success" />
+    <a asp-page="Index">学生列表</a>
+</form>
+

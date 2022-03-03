@@ -1,0 +1,23 @@
+﻿@page "{_id:int}"
+@model RazorPages_CRUD_NO_EntityFramework.Pages.DetailsModel
+@{
+}
+<h2>学生详细信息:</h2>
+<table class="table">
+    <tr>
+        <td>ID: @Html.DisplayFor(model => model.ListStudents.id)</td>
+    </tr>
+    <tr>
+        <td>姓名: @Html.DisplayFor(model => model.ListStudents.name)</td>
+    </tr>
+    <tr>
+        <td>电子邮件: @Html.DisplayFor(model => model.ListStudents.email)</td>
+    </tr>
+    <tr>
+        <td>出生日期: @Html.DisplayFor(model => model.ListStudents.datebirth)</td>
+    </tr>
+    <tr>
+        <td>性别: @Html.DisplayFor(model => model.ListStudents.sex)</td>
+    </tr>
+</table>
+<a asp-page="Index">学生列表</a>
